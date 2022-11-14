@@ -55,4 +55,16 @@ router.post("/login", async (req, res) => {
   });
 });
 
+// GET /api/users/logout - makes a new user
+router.get("/logout", async (req, res) => {
+  if (req.session.loggedIn) {
+    // add user info to the session
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
 module.exports = router;
