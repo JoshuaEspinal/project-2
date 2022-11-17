@@ -26,7 +26,7 @@ router.get("/:reviewId", async (req, res) => {
       },
     });
 
-    if (!todo) {
+    if (!review) {
       return res.status(404).json({
         msg: "User doesn't own review with this id",
       });
